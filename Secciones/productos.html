@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <!--Esto es un comentario lalalalala -->
@@ -76,44 +77,123 @@
       <section class="galeria">
         <h3 class="banner">Elegí el que más te guste!</h3>
         <div class="itemsTotal">
+          
           <div class="item">
             <p>Maceta de interiores</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/maceta3d43.jpg" alt="Maceta para plantas de  interior" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$500</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
             <p>Pokemons impresos en 3D</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/poke.jpg" alt="Pokemons impresos en 3D"  height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$200</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
-
             <p>JoyConHolder para Switch</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/JoyConHolderFront.jpg" alt="JoyConHolder para Switch" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$1200</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+         
           <div class="item">
             <p>Lapicero estilo low poly</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/LapiceroLleno.jpg" alt="Lapicero estilo low poly" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$250</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+         
           <div class="item">
             <p>Escurre dentifrico</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/escurreDentifrico.jpg" alt="Escurre dentifrico" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$100</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
             <p>Porta controles remoto</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/PortaControles.jpg" alt="Porta control remoto" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$800</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
             <p>Auto antiguo de juguete</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/autoJuguete.jpg" alt="Auto antiguo de juguete" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$350</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
             <p>Anti anteojos nublados</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/antiNiebla.jpg" alt="Preventor de niebla en los anteojos para barbijos" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$120</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
+          
           <div class="item">
             <p>Caja .22 100 municiones</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/balas22CaseFull.jpg" alt="Caja para tiro deportivo de calibre .22, hasta 100 balas" height="216" width="216"></a></picture>
+            <div class="precioProd">
+              <span>$1500</span>
+              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4">AL CARRO</button>
+            </div>
           </div>
         </div>
+      </section>
+
+      <section class="container">
+        <h3 class="banner">CARRITO</h3>
+        <div class="carro-fila">
+          <span class="carro-item carro-titulo carro-columna">ITEM</span>
+          <span class="carro-precio carro-titulo carro-columna">PRECIO</span>
+          <span class="carro-cant carro-titulo carro-columna">CANTIDAD</span>
+        </div>
+
+        <div class="carro-fila">
+          <span class="carro-item carro-columna carro-item-titulo">Maceta</span>
+          <span class="carro-precio carro-columna">$500</span>
+          <div class="carro-cant carro-columna">
+            <input type="number" value=1 class="carro-cant-input"></input>
+            <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
+          </div>
+        </div>
+
+        <div class="carro-fila">
+          <span class="carro-item carro-columna carro-item-titulo">Pokemon</span>
+          <span class="carro-precio carro-columna">$200</span>
+          <div class="carro-cant carro-columna">
+            <input type="number" value=1 class="carro-cant-input"></input>
+            <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
+          </div>
+        </div>
+
+        <div class="carro-total">
+          <strong class="carro-total-titulo">Total</strong>
+          <span class="carro-total-precio">$1100</span>
+        </div>
+
+        <button role="buton" class="btn btn-block btn-primary btn-comprar rounded py-2 px-4 ">COMPRAR</button>
+
       </section>
     </main>
 
