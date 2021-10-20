@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap" rel="stylesheet">
-    <script src="../js/main.js" async></script>
   </head>
 
   <body>
@@ -79,7 +78,7 @@
         <h3 class="banner">Elegí el que más te guste!</h3>
         <div class="itemsTotal">
           
-          <div class="item">
+          <div class="item" data-id="1">
             <p class="tituloItem">Maceta</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/maceta3d43.jpg" alt="Maceta para plantas de  interior" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -88,7 +87,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="2">
             <p class="tituloItem">Pokemon</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/poke.jpg" alt="Pokemons impresos en 3D"  height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -97,7 +96,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="3">
             <p class="tituloItem">JoyConHolder</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/JoyConHolderFront.jpg" alt="JoyConHolder para Switch" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -106,7 +105,7 @@
             </div>
           </div>
          
-          <div class="item">
+          <div class="item" data-id="4">
             <p class="tituloItem">Lapicero</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/LapiceroLleno.jpg" alt="Lapicero estilo low poly" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -115,7 +114,7 @@
             </div>
           </div>
          
-          <div class="item">
+          <div class="item" data-id="5">
             <p class="tituloItem">Escurre dentifrico</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/escurreDentifrico.jpg" alt="Escurre dentifrico" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -124,7 +123,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="6">
             <p class="tituloItem">Porta control remoto</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/PortaControles.jpg" alt="Porta control remoto" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -133,7 +132,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="7">
             <p class="tituloItem">Auto antiguo</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/autoJuguete.jpg" alt="Auto antiguo de juguete" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -142,7 +141,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="8">
             <p class="tituloItem">Anti anteojos nublados</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/antiNiebla.jpg" alt="Preventor de niebla en los anteojos para barbijos" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -151,7 +150,7 @@
             </div>
           </div>
           
-          <div class="item">
+          <div class="item" data-id="9">
             <p class="tituloItem">Caja .22 100 municiones</p>
             <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/balas22CaseFull.jpg" alt="Caja para tiro deportivo de calibre .22, hasta 100 balas" height="216" width="216"></a></picture>
             <div class="precioProd">
@@ -166,7 +165,7 @@
         <h3 class="banner">CARRITO</h3>
         <div class="carro-fila">
             <span class="carro-item carro-titulo carro-columna">ITEM</span>
-            <span class="carro-precio carro-titulo carro-columna">PRECIO</span>
+            <span class="carro-precio carro-titulo carro-columna">PRECIO UNITARIO</span>
             <span class="carro-cant carro-titulo carro-columna">CANTIDAD</span>
         </div>
 
@@ -176,8 +175,14 @@
           <strong class="carro-total-titulo">Total</strong>
           <span class="carro-total-precio">$0</span>
         </div>
-
-        <button role="buton" class="btn btn-block btn-primary btn-comprar rounded py-2 px-4 ">COMPRAR</button>
+        
+        <div>
+          <button role="buton" class="btn btn-block btn-primary btn-comprar rounded py-2 px-4 ">COMPRAR</button>
+          <button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">ordenar por precio item</button>
+          <button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">el mas caro</button>
+          <button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">el mas barato</button>
+        </div>
+        
 
       </section>
     </main>
@@ -217,5 +222,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="../js/carro.js"></script>
+    <script src="../js/main.js"></script>
+    
   </body>
 </html>
