@@ -41,6 +41,14 @@ function prepararCarro(event) {
     actualizarPrecioTotal();
 }
 
+function cambioCantidad(event) {
+    var cantidadAComprar = event.target;
+    if (isNaN(cantidadAComprar.value) || cantidadAComprar.value <= 0) {
+        cantidadAComprar.value = 1;
+    }
+    actualizarPrecioTotal();
+}
+
 function quitarDelCarro(event) {
     var boton = event.target;
     var paraSacar = boton.parentElement.parentElement.getElementsByClassName('carro-item-titulo')[0].innerText;
@@ -84,16 +92,6 @@ function mostrarLoPedido(event){
         default:
             return 0;
     }
-}
-
-function alfabetico(a, b) {
-    if (a.precio > b.precio) {
-      return 1;
-    }
-    if (a.precio < b.precio) {
-      return -1;
-    }
-    return 0;
 }
 
 class Producto {

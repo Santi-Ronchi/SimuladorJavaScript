@@ -33,12 +33,3 @@ function ready() {
     }
 }
 
-
-function cambioCantidad(event) {
-    var cantidadAComprar = event.target;
-    if (isNaN(cantidadAComprar.value) || cantidadAComprar.value <= 0) {
-        cantidadAComprar.value = 1;
-    }
-    actualizarPrecioTotal();
-}
-
