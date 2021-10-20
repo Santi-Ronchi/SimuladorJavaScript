@@ -6,6 +6,8 @@ if(document.readyState == 'loading') {
 
 function ready() {
 
+    bienvenida();
+
     var botonesQuitarDelCarro = document.getElementsByClassName('btn-danger');
     for (var i = 0; i < botonesQuitarDelCarro.length; i++) {
         var boton = botonesQuitarDelCarro[i];

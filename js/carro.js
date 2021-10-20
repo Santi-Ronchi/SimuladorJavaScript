@@ -1,5 +1,18 @@
 const carro = [];
 
+
+function bienvenida(){
+    var nombreCliente = prompt("Ingrese su nombre.");
+    alert("Hola, " + nombreCliente + "!");
+
+    var nombreCarrito = document.createElement('h4');
+    nombreCarrito.classList.add('banner');
+    var tituloCarro = document.getElementsByClassName('carro-nombre')[0];
+    var contenido = `<h4 class="banner">Carrito de ${nombreCliente}</h4>`;
+    nombreCarrito.innerHTML = contenido;
+    tituloCarro.append(nombreCarrito);
+}
+
 function actualizarPrecioTotal() {
     var itemCarroContainer = document.getElementsByClassName('carro-items')[0];
     var carroFilas = itemCarroContainer.getElementsByClassName('carro-fila');
