@@ -2,27 +2,27 @@ const carro = [];
 
 
 function bienvenida(){
-    var nombreCliente = prompt("Ingrese su nombre.");
+    let nombreCliente = prompt("Ingrese su nombre.");
     alert("Hola, " + nombreCliente + "!");
 
-    var nombreCarrito = document.createElement('h4');
+    let nombreCarrito = document.createElement('h4');
     nombreCarrito.classList.add('banner');
-    var tituloCarro = document.getElementsByClassName('carro-nombre')[0];
-    var contenido = `<h4 class="banner">Carrito de ${nombreCliente}</h4>`;
+    let tituloCarro = document.getElementsByClassName('carro-nombre')[0];
+    let contenido = `<h4 class="banner">Carrito de ${nombreCliente}</h4>`;
     nombreCarrito.innerHTML = contenido;
     tituloCarro.append(nombreCarrito);
 }
 
 function actualizarPrecioTotal() {
-    var itemCarroContainer = document.getElementsByClassName('carro-items')[0];
-    var carroFilas = itemCarroContainer.getElementsByClassName('carro-fila');
-    var total = 0;
-    for (var i = 0; i < carroFilas.length; i++) {
-        var carroFila = carroFilas[i];
-        var precioItem = carroFila.getElementsByClassName('carro-precio')[0];
-        var cantidadItem = carroFila.getElementsByClassName('carro-cant-input')[0];
-        var precio = parseFloat(precioItem.innerText.replace('$', ''));
-        var cantidad = cantidadItem.value;
+    let itemCarroContainer = document.getElementsByClassName('carro-items')[0];
+    let carroFilas = itemCarroContainer.getElementsByClassName('carro-fila');
+    let total = 0;
+    for (let i = 0; i < carroFilas.length; i++) {
+        let carroFila = carroFilas[i];
+        let precioItem = carroFila.getElementsByClassName('carro-precio')[0];
+        let cantidadItem = carroFila.getElementsByClassName('carro-cant-input')[0];
+        let precio = parseFloat(precioItem.innerText.replace('$', ''));
+        let cantidad = cantidadItem.value;
         total = total + (precio * cantidad);
         carro[i][1] = cantidad;
     }
@@ -30,19 +30,19 @@ function actualizarPrecioTotal() {
 }
 
 function prepararCarro(event) {
-    var boton = event.target;
-    var itemParaAgregar = boton.parentElement.parentElement;
-    var precioItem = itemParaAgregar.getElementsByClassName('precio-item')[0];
-    var precio = parseFloat(precioItem.innerText.replace('$', ''));
+    let boton = event.target;
+    let itemParaAgregar = boton.parentElement.parentElement;
+    let precioItem = itemParaAgregar.getElementsByClassName('precio-item')[0];
+    let precio = parseFloat(precioItem.innerText.replace('$', ''));
     const productoCompra = new Producto(itemParaAgregar.getElementsByClassName('tituloItem')[0].innerText, precio);
-    var tupla = [productoCompra, 1];
+    let tupla = [productoCompra, 1];
     carro.push(tupla);
     productoCompra.agregarAlCarro();
     actualizarPrecioTotal();
 }
 
 function cambioCantidad(event) {
-    var cantidadAComprar = event.target;
+    let cantidadAComprar = event.target;
     if (isNaN(cantidadAComprar.value) || cantidadAComprar.value <= 0) {
         cantidadAComprar.value = 1;
     }
@@ -50,8 +50,8 @@ function cambioCantidad(event) {
 }
 
 function quitarDelCarro(event) {
-    var boton = event.target;
-    var paraSacar = boton.parentElement.parentElement.getElementsByClassName('carro-item-titulo')[0].innerText;
+    let boton = event.target;
+    let paraSacar = boton.parentElement.parentElement.getElementsByClassName('carro-item-titulo')[0].innerText;
     boton.parentElement.parentElement.remove();
     for(i=0; i < carro.length; i++){
         if(paraSacar == carro[i][0].titulo){
@@ -72,7 +72,7 @@ function mostrarLoPedido(event){
             break;
 
         case "el mas caro":
-            var max = 0;
+            let max = 0;
             for(i=0; i < carro.length; i++){
                 if(carro[i][0].precio * carro[i][1] > max){
                     max = carro[i][0].precio * carro[i][1];
@@ -81,7 +81,7 @@ function mostrarLoPedido(event){
             alert("el mas caro vale $" + max);
             break;
         case "el mas barato":
-            var min = 999999999;
+            let min = 999999999;
             for(i=0; i < carro.length; i++){
                 if(carro[i][0].precio * carro[i][1] < min){
                     min = carro[i][0].precio * carro[i][1];
@@ -101,18 +101,18 @@ class Producto {
     }
 
     agregarAlCarro() {
-        var carroFila = document.createElement('div');
+        let carroFila = document.createElement('div');
         carroFila.classList.add('carro-fila');
-        var carroItems = document.getElementsByClassName('carro-items')[0];
+        let carroItems = document.getElementsByClassName('carro-items')[0];
         
-        var verificarDuplicado = carroItems.getElementsByClassName('carro-item-titulo');
-        for (var i = 0; i < verificarDuplicado.length; i++) {
+        let verificarDuplicado = carroItems.getElementsByClassName('carro-item-titulo');
+        for (let i = 0; i < verificarDuplicado.length; i++) {
             if(verificarDuplicado[i].innerText == this.titulo) {
                 alert("Este item ya fue agregado");
                 return
             }
         }
-        var carroFilaContenido = `
+        let carroFilaContenido = `
         <span class="carro-item carro-columna carro-item-titulo">${this.titulo}</span>
         <span class="carro-precio carro-columna">${this.precio}</span>
         <div class="carro-cant carro-columna">

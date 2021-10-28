@@ -8,27 +8,27 @@ function ready() {
 
     bienvenida();
 
-    var botonesQuitarDelCarro = document.getElementsByClassName('btn-danger');
-    for (var i = 0; i < botonesQuitarDelCarro.length; i++) {
-        var boton = botonesQuitarDelCarro[i];
+    let botonesQuitarDelCarro = document.getElementsByClassName('btn-danger');
+    for (let i = 0; i < botonesQuitarDelCarro.length; i++) {
+        let boton = botonesQuitarDelCarro[i];
         boton.addEventListener('click', quitarDelCarro);
     }
 
-    var cantInputs = document.getElementsByClassName('carro-cant-input');
-    for (var i = 0; i < cantInputs.length; i++) {
-        var cantidadAComprar = cantInputs[i];
+    let cantInputs = document.getElementsByClassName('carro-cant-input');
+    for (let i = 0; i < cantInputs.length; i++) {
+        let cantidadAComprar = cantInputs[i];
         cantidadAComprar.addEventListener('change', cambioCantidad);
     }
 
-    var agregarAlCarro = document.getElementsByClassName('btn-agregar-carro');
-    for (var i = 0; i < agregarAlCarro.length; i++){
-        var agregado = agregarAlCarro[i];
+    let agregarAlCarro = document.getElementsByClassName('btn-agregar-carro');
+    for (let i = 0; i < agregarAlCarro.length; i++){
+        let agregado = agregarAlCarro[i];
         agregado.addEventListener('click', prepararCarro);
     }
 
-    var orden = document.getElementsByClassName('btn-ordenar');
-    for (var i = 0; i < orden.length; i++){
-        var agregado = orden[i];
+    let orden = document.getElementsByClassName('btn-ordenar');
+    for (let i = 0; i < orden.length; i++){
+        let agregado = orden[i];
         agregado.addEventListener('click', mostrarLoPedido);
     }
 }
