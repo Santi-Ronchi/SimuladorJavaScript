@@ -1,0 +1,47 @@
+[
+    {
+        "nombre": "Maceta",
+        "precio": "500",
+        "imagen": "../media/fotos/maceta3d43.jpg"
+    },
+    {
+        "nombre": "Pokemon",
+        "precio": "200",
+        "imagen": "../media/fotos/poke.jpg"
+    },
+    {
+        "nombre": "JoyConHolder",
+        "precio": "1200",
+        "imagen": "../media/fotos/JoyConHolderFront.jpg"
+    },
+    {
+        "nombre": "Lapicero",
+        "precio": "250",
+        "imagen": "../media/fotos/LapiceroLleno.jpg"
+    },
+    {
+        "nombre": "Escurre dentifrico",
+        "precio": "100",
+        "imagen": "../media/fotos/escurreDentifrico.jpg"
+    },
+    {
+        "nombre": "Porta control remoto",
+        "precio": "800",
+        "imagen": "../media/fotos/PortaControles.jpg"
+    },
+    {
+        "nombre": "Auto antiguo",
+        "precio": "350",
+        "imagen": "../media/fotos/autoJuguete.jpg"
+    },
+    {
+        "nombre": "Anti anteojos nublados",
+        "precio": "120",
+        "imagen": "../media/fotos/antiNiebla.jpg"
+    },
+    {
+        "nombre": "Caja .22 100 municiones",
+        "precio": "1500",
+        "imagen": "../media/fotos/balas22CaseFull.jpg"
+    }
+]

@@ -1,30 +1,18 @@
 const carro = [];
+let carroID = 1;
 
-
-function bienvenida(){
-    let nombreCliente = prompt("Ingrese su nombre.");
-    alert("Hola, " + nombreCliente + "!");
-
-    let nombreCarrito = document.createElement('h4');
-    nombreCarrito.classList.add('banner');
-    let tituloCarro = document.getElementsByClassName('carro-nombre')[0];
-    let contenido = `<h4 class="banner">Carrito de ${nombreCliente}</h4>`;
-    nombreCarrito.innerHTML = contenido;
-    tituloCarro.append(nombreCarrito);
-}
 
 function actualizarPrecioTotal() {
-    let itemCarroContainer = document.getElementsByClassName('carro-items')[0];
-    let carroFilas = itemCarroContainer.getElementsByClassName('carro-fila');
+    //let itemCarroContainer = document.getElementsByClassName('carro-items')[0];
+    let carroFilas = document.getElementsByClassName('carro-items')[0].getElementsByClassName('carro-fila');
     let total = 0;
     for (let i = 0; i < carroFilas.length; i++) {
         let carroFila = carroFilas[i];
         let precioItem = carroFila.getElementsByClassName('carro-precio')[0];
-        let cantidadItem = carroFila.getElementsByClassName('carro-cant-input')[0];
         let precio = parseFloat(precioItem.innerText.replace('$', ''));
-        let cantidad = cantidadItem.value;
+        let cantidad = carroFila.getElementsByClassName('carro-cant-input')[0].value;
         total = total + (precio * cantidad);
-        carro[i][1] = cantidad;
+        carro[i].cant = cantidad;
     }
     document.getElementsByClassName('carro-total-precio')[0].innerText = '$' + total
 }
@@ -34,10 +22,20 @@ function prepararCarro(event) {
     let itemParaAgregar = boton.parentElement.parentElement;
     let precioItem = itemParaAgregar.getElementsByClassName('precio-item')[0];
     let precio = parseFloat(precioItem.innerText.replace('$', ''));
-    const productoCompra = new Producto(itemParaAgregar.getElementsByClassName('tituloItem')[0].innerText, precio);
-    let tupla = [productoCompra, 1];
-    carro.push(tupla);
-    productoCompra.agregarAlCarro();
+    let nomItem = itemParaAgregar.getElementsByClassName('tituloItem')[0].innerText
+    for (let i = 0; i < carro.length; i++) {
+        if(carro[i].titulo == nomItem) {
+            alert("El producto ya esta en el carro")
+            //carro[i].cant = carro[i].cant++;
+            return
+        }
+    }
+    let cant = 1;
+    const productoCompra = new Producto(nomItem, precio, cant, carroID);
+    carroID++
+    carro.push(productoCompra);
+    agregarAlCarro(productoCompra.titulo, productoCompra.precio, productoCompra.id);
+    guardarProductoEnLS(productoCompra);
     actualizarPrecioTotal();
 }
 
@@ -50,78 +48,75 @@ function cambioCantidad(event) {
 }
 
 function quitarDelCarro(event) {
-    let boton = event.target;
-    let paraSacar = boton.parentElement.parentElement.getElementsByClassName('carro-item-titulo')[0].innerText;
-    boton.parentElement.parentElement.remove();
+    let elemento = event.target.parentElement.parentElement;
+    let paraSacar = elemento.getElementsByClassName('carro-item-titulo')[0].innerText;
+    elemento.remove();
     for(i=0; i < carro.length; i++){
-        if(paraSacar == carro[i][0].titulo){
+        if(paraSacar == carro[i].titulo){
             carro.splice(i, 1);
         }
     }
+    let productos = getProductosDeLS();
+    let listaActualizada = productos.filter(producto => {
+        console.log(producto.titulo !== paraSacar);
+        console.log(producto.titulo);
+        console.log(paraSacar);
+        return (producto.titulo !== paraSacar);
+    });
+    localStorage.setItem('productos', JSON.stringify(listaActualizada));
     actualizarPrecioTotal();
 }
 
-function mostrarLoPedido(event){
-    switch (event.target.innerText){
-        case "ordenar por precio item":
-            carro.sort((a, b) => {
-                return a[0].precio - b[0].precio;
-            });
-            console.log(carro);
-            
-            break;
-
-        case "el mas caro":
-            let max = 0;
-            for(i=0; i < carro.length; i++){
-                if(carro[i][0].precio * carro[i][1] > max){
-                    max = carro[i][0].precio * carro[i][1];
-                }
-            }
-            alert("el mas caro vale $" + max);
-            break;
-        case "el mas barato":
-            let min = 999999999;
-            for(i=0; i < carro.length; i++){
-                if(carro[i][0].precio * carro[i][1] < min){
-                    min = carro[i][0].precio * carro[i][1];
-                }
-            }
-            alert("el mas barato vale $" + min);
-            break;
-        default:
-            return 0;
-    }
+function guardarProductoEnLS(item){
+    let productos = getProductosDeLS();
+    productos.push(item);
+    localStorage.setItem('productos', JSON.stringify(productos));
 }
 
+function getProductosDeLS(){
+    return localStorage.getItem('productos') ? JSON.parse(localStorage.getItem('productos')) : [];
+}
+
+function cargarCarro(){
+    let productos = getProductosDeLS();
+    if(productos.length < 1){
+        cartItemID = 1; 
+    } else {
+        cartItemID = productos[productos.length - 1].id;
+        cartItemID++;
+    }
+    productos.forEach(producto => {
+        const productoCompra = new Producto(producto.titulo, producto.precio, producto.cant, producto.id);
+        carro.push(productoCompra);
+        agregarAlCarro(producto.titulo, producto.precio)
+    });
+    actualizarPrecioTotal();
+}
+
+function agregarAlCarro(titulo, precio, id) {
+    let carroFila = document.createElement('div');
+    carroFila.classList.add('carro-fila');
+    carroFila.setAttribute('data-id', `${id}`)
+    let carroItems = document.getElementsByClassName('carro-items')[0];
+    let carroFilaContenido = `
+    <span class="carro-item carro-columna carro-item-titulo">${titulo}</span>
+    <span class="carro-precio carro-columna">$${precio}</span>
+    <div class="carro-cant carro-columna">
+      <input class="carro-cant-input" type="number" value="1"></input>
+      <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
+    </div>`;
+    carroFila.innerHTML = carroFilaContenido;
+    carroItems.append(carroFila);
+    carroFila.getElementsByClassName('btn-danger')[0].addEventListener('click', quitarDelCarro);
+    carroFila.getElementsByClassName('carro-cant-input')[0].addEventListener('change', cambioCantidad);
+}
+
+
 class Producto {
-    constructor(titulo, precio) {
+    constructor(titulo, precio, cant, id) {
         this.titulo = titulo;
         this.precio = precio;
-    }
-
-    agregarAlCarro() {
-        let carroFila = document.createElement('div');
-        carroFila.classList.add('carro-fila');
-        let carroItems = document.getElementsByClassName('carro-items')[0];
-        
-        let verificarDuplicado = carroItems.getElementsByClassName('carro-item-titulo');
-        for (let i = 0; i < verificarDuplicado.length; i++) {
-            if(verificarDuplicado[i].innerText == this.titulo) {
-                alert("Este item ya fue agregado");
-                return
-            }
-        }
-        let carroFilaContenido = `
-        <span class="carro-item carro-columna carro-item-titulo">${this.titulo}</span>
-        <span class="carro-precio carro-columna">${this.precio}</span>
-        <div class="carro-cant carro-columna">
-          <input class="carro-cant-input" type="number" value="1"></input>
-          <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
-        </div>`;
-        carroFila.innerHTML = carroFilaContenido;
-        carroItems.append(carroFila);
-        carroFila.getElementsByClassName('btn-danger')[0].addEventListener('click', quitarDelCarro);
-        carroFila.getElementsByClassName('carro-cant-input')[0].addEventListener('change', cambioCantidad);
+        this.cant = cant;
+        this.id = id;
     }
 }
