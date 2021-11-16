@@ -1,10 +1,4 @@
-if(document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
-
-const listaProductos = document.querySelector('.itemsTotal');
+$(document).ready(ready());
 
 function ready() {
     loadJSON();
@@ -27,26 +21,31 @@ function loadJSON(){
                     <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4 btn-agregar-carro">AL CARRO</button>
                 </div>
             </div>
-            `;
-        });
-        listaProductos.innerHTML = html;
-        let botonesQuitarDelCarro = listaProductos.getElementsByClassName('btn-danger');
+            `;});
+        $('.itemsTotal').append(html);
+
+
+        $('.btn-danger').on('click', quitarDelCarro);
+        /*let botonesQuitarDelCarro = $('.btn-danger');
         for (let i = 0; i < botonesQuitarDelCarro.length; i++) {
             let boton = botonesQuitarDelCarro[i];
-            boton.addEventListener('click', quitarDelCarro);
-        }
+            boton.on('click', quitarDelCarro);
+        }*/
 
-        let cantInputs = listaProductos.getElementsByClassName('carro-cant-input');
+        $('.carro-cant-input').on('change', cambioCantidad);
+        /*let cantInputs = $('.carro-cant-input');
         for (let i = 0; i < cantInputs.length; i++) {
             let cantidadAComprar = cantInputs[i];
-            cantidadAComprar.addEventListener('change', cambioCantidad);
-        }
+            cantidadAComprar.on('change', cambioCantidad);
+        }*/
 
-        let agregarAlCarro = listaProductos.getElementsByClassName('btn-agregar-carro');
-        for (let i = 0; i < agregarAlCarro.length; i++){
+        $('.btn-agregar-carro').on('click', prepararCarro);
+        //let agregarAlCarro = $('.btn-agregar-carro');
+        /*for (let i = 0; i < agregarAlCarro.length; i++){
             let agregado = agregarAlCarro[i];
-            agregado.addEventListener('click', prepararCarro);
-        }
+            console.log(agregado);
+            agregado.on('click', prepararCarro);
+        }*/
     })
 }
 
@@ -64,13 +63,7 @@ function bienvenida(){
         localStorage.setItem('nombreCliente', nombreCliente);
         nombreCarrito = nombreCliente;
     }
-
-    let carrito = document.createElement('h4');
-    carrito.classList.add('banner');
-    let tituloCarro = document.getElementsByClassName('carro-nombre')[0];
-    let contenido = `<h4 class="banner">Carrito de ${nombreCarrito}</h4>`;
-    carrito.innerHTML = contenido;
-    tituloCarro.append(carrito);
+    $('.carro-nombre').append(`<h4 class="banner">Carrito de ${nombreCarrito}</h4>`);
     
     
 }

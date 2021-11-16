@@ -58,9 +58,6 @@ function quitarDelCarro(event) {
     }
     let productos = getProductosDeLS();
     let listaActualizada = productos.filter(producto => {
-        console.log(producto.titulo !== paraSacar);
-        console.log(producto.titulo);
-        console.log(paraSacar);
         return (producto.titulo !== paraSacar);
     });
     localStorage.setItem('productos', JSON.stringify(listaActualizada));
