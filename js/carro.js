@@ -104,8 +104,8 @@ function agregarAlCarro(titulo, precio, id) {
     </div>`;
     carroFila.innerHTML = carroFilaContenido;
     carroItems.append(carroFila);
-    carroFila.getElementsByClassName('btn-danger')[0].addEventListener('click', quitarDelCarro);
-    carroFila.getElementsByClassName('carro-cant-input')[0].addEventListener('change', cambioCantidad);
+    $('.btn-danger').on('click', quitarDelCarro);
+    $('.carro-cant-input').on('change', cambioCantidad);
 }
 
 
