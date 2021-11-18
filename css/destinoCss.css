@@ -110,7 +110,8 @@ section {
   text-align: center;
   margin: 20px;
   color: #55d6aa;
-  font-family: Tourney; }
+  font-family: Tourney;
+  display: none; }
 
 .galeria .itemsTotal {
   padding: 20px;
@@ -207,6 +208,9 @@ section {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 16px; }
+
+.carro-con-items {
+  display: none; }
 
 @keyframes iniciaPagina {
   0% { }

@@ -23,29 +23,9 @@ function loadJSON(){
             </div>
             `;});
         $('.itemsTotal').append(html);
-
-
         $('.btn-danger').on('click', quitarDelCarro);
-        /*let botonesQuitarDelCarro = $('.btn-danger');
-        for (let i = 0; i < botonesQuitarDelCarro.length; i++) {
-            let boton = botonesQuitarDelCarro[i];
-            boton.on('click', quitarDelCarro);
-        }*/
-
         $('.carro-cant-input').on('change', cambioCantidad);
-        /*let cantInputs = $('.carro-cant-input');
-        for (let i = 0; i < cantInputs.length; i++) {
-            let cantidadAComprar = cantInputs[i];
-            cantidadAComprar.on('change', cambioCantidad);
-        }*/
-
         $('.btn-agregar-carro').on('click', prepararCarro);
-        //let agregarAlCarro = $('.btn-agregar-carro');
-        /*for (let i = 0; i < agregarAlCarro.length; i++){
-            let agregado = agregarAlCarro[i];
-            console.log(agregado);
-            agregado.on('click', prepararCarro);
-        }*/
     })
 }
 
@@ -64,6 +44,8 @@ function bienvenida(){
         nombreCarrito = nombreCliente;
     }
     $('.carro-nombre').append(`<h4 class="banner">Carrito de ${nombreCarrito}</h4>`);
-    
+    $(".banner").fadeIn("slow");
+
+     
     
 }

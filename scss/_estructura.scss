@@ -147,6 +147,7 @@ section {
 	margin: $margen;
 	color: $colorPrimario;
 	font-family: Tourney;
+	display: none;
 }
 
 .galeria {
@@ -271,6 +272,9 @@ section {
 	font-size: 16px;
 }
 
+.carro-con-items {
+	display: none;
+}
 
 @keyframes iniciaPagina {
 	0% {
