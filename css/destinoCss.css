@@ -63,6 +63,12 @@ nav ul {
       nav ul li a:hover::before {
         width: 100%; }
 
+h2 {
+  text-align: center;
+  margin: 20px;
+  color: #55d6aa;
+  font-family: Tourney; }
+
 .cuerpoCarousel {
   margin-top: 20px; }
 
@@ -211,6 +217,12 @@ section {
 
 .carro-con-items {
   display: none; }
+
+.card {
+  background-color: #1b2927; }
+
+.contenedor-formulario {
+  width: 100%; }
 
 @keyframes iniciaPagina {
   0% { }

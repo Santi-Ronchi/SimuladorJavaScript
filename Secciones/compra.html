@@ -2,10 +2,10 @@
 <html>
   <head>
     <!--Esto es un comentario lalalalala -->
-    <title>Productos 3D2Print</title>
+    <title>Contacto 3D2Print</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Productos, Venta, Galeria, 3d2print, 3d2prints, 3d printing, prints, 3d">
-    <meta name="description" content="Pagina de productos de 3D2Print para conseguir el gadget o utilidad que necesites para tu casa">
+    <meta name="keywords" content="Contacto, Sugerencias, Quejas, Consultas, 3d2print, 3d2prints, 3d printing, prints, 3d">
+    <meta name="description" content="Pagina de contacto de 3D2Print para consultas y sugerencias">
     <meta charset="UTF-8">
     <!--INSTERAR CSS EXTERNO -->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap" rel="stylesheet">
-  </head>
+ </head>
 
-  <body>
+ <body>
     <!-- Contendio visible para el usuario -->
     <header class="encabezado">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
@@ -73,56 +73,75 @@
     </header>
 
     <main>
-      <!--Galería de articulos a la venta, todavía son autoreferenciales, en un futuro estaran en mercado libre. -->
-      <section class="galeria">
-        <h3 class="banner">Elegí el que más te guste!</h3>
-        <div class="itemsTotal">
-          
-          <!--<div class="item">
-            <p class="tituloItem">Maceta</p>
-            <picture><a href="proximamente.html"><img class="bordesRedondeados" src="../media/fotos/maceta3d43.jpg" alt="Maceta para plantas de  interior" height="216" width="216"></a></picture>
-            <div class="precioProd">
-              <span class="precio-item">$500</span>
-              <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4 btn-agregar-carro">AL CARRO</button>
+        <!---->
+      <section>
+        <h2>Detalle de pago</h2>
+
+        <div class="container mt-5 px-5">
+            <div class="mb-4">
+                <h3>Confirmar orden y pago</h3> <span>Por favor ingrese sus datos.</span>
             </div>
-          </div>-->
-          
+            <div class="row contenedor-formulario">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <h6 class="text-uppercase">Detalles de pago</h6>
+                        <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Nombre en la tarjeta</span> </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>N° Tarjeta</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex flex-row">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Vencimiento</span> </div>
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CVV</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 mb-4">
+                            <h6 class="text-uppercase">Domicilio</h6>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Calle y numero</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Ciudad</span> </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Provincia</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CP</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between"><button class="btn btn-success px-5">Pagar</button> </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Productos a comprar:</h4>
+                    <div class="carro-items">
+                        <!--<div class="carro-fila" id="2">
+                            <span class="carro-item carro-columna carro-item-titulo">Maceta</span>
+                            <span class="carro-precio carro-columna">$350</span>
+                            <div class="carro-cant carro-columna">
+                                <input class="carro-cant-input" type="number" value="1"></input>
+                                <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="carro-total">
+                        <strong class="carro-total-titulo">Total</strong>
+                        <span class="carro-total-precio">$0</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <br><br><br>
+
       </section>
-
-      <div class="carro-nombre">
-        <!--<h4 class="banner">CARRITO</h4>-->
-      </div>
-      
-      <section class="container carro-con-items">
-        
-        <div class="carro-fila">
-            <span class="carro-item carro-titulo carro-columna">ITEM</span>
-            <span class="carro-precio carro-titulo carro-columna">PRECIO UNITARIO</span>
-            <span class="carro-cant carro-titulo carro-columna">CANTIDAD</span>
-        </div>
-
-        <div class="carro-items">
-        </div>
-        <div class="carro-total">
-          <strong class="carro-total-titulo">Total</strong>
-          <span class="carro-total-precio">$0</span>
-        </div>
-        
-        <div>
-          <a href="./compra.html"><button role="buton" class="btn btn-block btn-primary btn-comprar rounded py-2 px-4 ">COMPRAR</button></a>
-          <!--<button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">ordenar por precio item</button>
-          <button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">el mas caro</button>
-          <button role="buton" class="btn btn-block btn-primary btn-ordenar rounded py-2 px-4 ">el mas barato</button>-->
-        </div>
-        
-
-      </section>
-
-      <div>
-        <h4 class="banner carro-vacio">CARRITO VACIO</h4>
-      </div>
-
     </main>
 
     <footer class="pieDePag">
@@ -166,7 +185,6 @@
       crossorigin="anonymous">
     </script>
     <script src="../js/carro.js"></script>
-    <script src="../js/main.js"></script>
-    
-  </body>
+    <script src="../js/compra.js"></script>
+</body>
 </html>

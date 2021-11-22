@@ -87,6 +87,7 @@ function getProductosDeLS(){
 }
 
 function cargarCarro(){
+    console.log("ENTREEEE");
     let productos = getProductosDeLS();
     if(productos.length < 1){
         cartItemID = 1; 

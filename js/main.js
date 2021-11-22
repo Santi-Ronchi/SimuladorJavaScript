@@ -15,7 +15,7 @@ function loadJSON(){
             html += `
             <div class="item">
                 <p class="tituloItem">${producto.nombre}</p>
-                <picture><a href="proximamente.html"><img class="bordesRedondeados" src=${producto.imagen} alt="Maceta para plantas de  interior" height="216" width="216"></a></picture>
+                <picture><img class="bordesRedondeados" src=${producto.imagen} alt="Maceta para plantas de  interior" height="216" width="216"></picture>
                 <div class="precioProd">
                     <span class="precio-item">$${producto.precio}</span>
                     <button role="button" class="btn btn-block btn-secondary rounded py-2 px-4 btn-agregar-carro">AL CARRO</button>

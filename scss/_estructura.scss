@@ -44,7 +44,7 @@ body {
 	animation-timing-function: ease-in-out;
 }
 
-nav{
+nav {
     li{
     	align-items: center;
 		padding-top: $margen+5;
@@ -87,6 +87,13 @@ nav{
             }
         }
     }
+}
+
+h2 {
+	text-align: center;
+	margin: $margen;
+	color: $colorPrimario;
+	font-family: Tourney;
 }
 
 .cuerpoCarousel{
@@ -274,6 +281,14 @@ section {
 
 .carro-con-items {
 	display: none;
+}
+
+.card {
+	background-color: $colorFondo;
+}
+
+.contenedor-formulario {
+	width: 100%;
 }
 
 @keyframes iniciaPagina {

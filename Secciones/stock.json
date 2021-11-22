@@ -40,7 +40,7 @@
         "imagen": "../media/fotos/antiNiebla.jpg"
     },
     {
-        "nombre": "Caja .22 100 municiones",
+        "nombre": "Caja .22",
         "precio": "1500",
         "imagen": "../media/fotos/balas22CaseFull.jpg"
     }
