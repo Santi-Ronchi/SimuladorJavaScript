@@ -30,22 +30,27 @@ function loadJSON(){
 }
 
 function bienvenida(){
+
     let cliente = localStorage.getItem('nombreCliente');
-    let nombreCarrito
 
     if (cliente !== null){
-        alert("Bienvenido de nuevo, " + cliente);
-        nombreCarrito = cliente;
+        $('.galeria').prepend(`<h3 class="banner">Bienvenido de nuevo, ${cliente}</h3>`);
+        personalizar(cliente);
     }
     else{
-        let nombreCliente = prompt("Ingrese su nombre.");
-        alert("Hola, " + nombreCliente + "!");
-        localStorage.setItem('nombreCliente', nombreCliente);
-        nombreCarrito = nombreCliente;
+        $(".no-name").fadeIn();
+        $('.nombre-ingresado').on('keypress', function (event) {
+            if (event.key === 'Enter') {
+                let nombre = $(".nombre-ingresado").val();
+                localStorage.setItem('nombreCliente', nombre);
+                $('.galeria').prepend(`<h3 class="banner">Bienvenido, ${nombre}</h3>`);
+                personalizar(nombre);
+            }
+        });
     }
-    $('.carro-nombre').append(`<h4 class="banner">Carrito de ${nombreCarrito}</h4>`);
-    $(".banner").fadeIn("slow");
+}
 
-     
-    
+function personalizar(nombre) {
+    $('.carro-nombre').append(`<h4 class="banner">Carrito de ${nombre}</h4>`);
+    $(".no-name").fadeOut("slow", ()=>{$(".banner").fadeIn("slow")});
 }

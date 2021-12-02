@@ -291,6 +291,20 @@ section {
 	width: 100%;
 }
 
+.no-name {
+	font-family: Tourney;
+	color: $colorPrimario;
+	width: 60%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+.nombre-ingresado {
+	font-family: $estiloFuente;
+}
+
 @keyframes iniciaPagina {
 	0% {
 	}
