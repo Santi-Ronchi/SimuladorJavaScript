@@ -35,7 +35,7 @@ function bienvenida(){
     let cliente = localStorage.getItem('nombreCliente');
 
     if (cliente !== null){
-        $('.galeria').prepend(`<h3 class="banner">Bienvenido de nuevo, ${cliente}</h3>`);
+        $('.galeria').prepend(`<h3 class="banner">Bienvenid@ de nuevo, ${cliente}</h3>`);
         personalizar(cliente);
     }
     else{
@@ -44,7 +44,7 @@ function bienvenida(){
             if (event.key === 'Enter') {
                 let nombre = $(".nombre-ingresado").val();
                 localStorage.setItem('nombreCliente', nombre);
-                $('.galeria').prepend(`<h3 class="banner">Bienvenido, ${nombre}</h3>`);
+                $('.galeria').prepend(`<h3 class="banner">Bienvenid@, ${nombre}</h3>`);
                 personalizar(nombre);
             }
         });

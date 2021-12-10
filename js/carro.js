@@ -14,7 +14,7 @@ function actualizarPrecioTotal() {
         acutalizarLS(carro[i].titulo);
     }
     document.getElementsByClassName('carro-total-precio')[0].innerText = '$' + total
-    
+
     if(total === 0){
         $(".carro-con-items").fadeOut("slow", ()=>{$(".carro-vacio").fadeIn("slow")})
     }
@@ -76,11 +76,6 @@ function quitarDelCarro(event) {
         }
     }
     sacarDeLS(paraSacar);
-    /*let productos = getProductosDeLS();
-    let listaActualizada = productos.filter(producto => {
-        return (producto.titulo !== paraSacar);
-    });
-    localStorage.setItem('productos', JSON.stringify(listaActualizada));*/
     actualizarPrecioTotal();
     }); 
 }
