@@ -2,8 +2,8 @@ $(document).ready(ready());
 
 function ready() {
     loadJSON();
-    cargarCarro();
     bienvenida();
+    cargarCarro();
 }
 
 function loadJSON(){
@@ -13,7 +13,8 @@ function loadJSON(){
         let html = '';
         data.forEach(producto => {
             html += `
-            <div class="item">
+            <div class="item" id="${producto.id}">
+                <p class="cantStock">${producto.stock}</p>
                 <p class="tituloItem">${producto.nombre}</p>
                 <picture><img class="bordesRedondeados" src=${producto.imagen} alt="Maceta para plantas de  interior" height="216" width="216"></picture>
                 <div class="precioProd">

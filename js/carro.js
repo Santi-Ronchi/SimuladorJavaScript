@@ -1,9 +1,7 @@
 const carro = [];
-let carroID = 1;
 
 
 function actualizarPrecioTotal() {
-    //let itemCarroContainer = document.getElementsByClassName('carro-items')[0];
     let carroFilas = document.getElementsByClassName('carro-items')[0].getElementsByClassName('carro-fila');
     let total = 0;
     for (let i = 0; i < carroFilas.length; i++) {
@@ -13,57 +11,42 @@ function actualizarPrecioTotal() {
         let cantidad = carroFila.getElementsByClassName('carro-cant-input')[0].value;
         total = total + (precio * cantidad);
         carro[i].cant = cantidad;
+        acutalizarLS(carro[i].titulo);
     }
     document.getElementsByClassName('carro-total-precio')[0].innerText = '$' + total
-
+    
     if(total === 0){
         $(".carro-con-items").fadeOut("slow", ()=>{$(".carro-vacio").fadeIn("slow")})
     }
 }
 
 function prepararCarro(event) {
-    //let boton = event.target;
+    //boton = event.target;
+    let cant = 1;
     let itemParaAgregar = event.target.parentElement.parentElement;
-    //let precioItem = itemParaAgregar.getElementsByClassName('precio-item')[0];
     let precio = parseFloat(itemParaAgregar.getElementsByClassName('precio-item')[0].innerText.replace('$', ''));
     let nomItem = itemParaAgregar.getElementsByClassName('tituloItem')[0].innerText;
+    let itemID = itemParaAgregar.id;
 
     for (let i = 0; i < carro.length; i++) {
         if(carro[i].titulo == nomItem) {
-            alert("El producto ya esta en el carro")
-            //carro[i].cant = carro[i].cant++;
+            carro[i].cant++;
+            $("#" + String(carro[i].id) + ".carro-fila").find('.carro-cant-input').val(carro[i].cant);
+            let nuevaCant = $("#" + String(carro[i].id) + ".carro-fila").find('.carro-cant-input').val();
+            if (nuevaCant > 10) {
+                nuevaCant = $("#" + String(carro[i].id) + ".carro-fila").find('.carro-cant-input').val(10);
+                carro[i].cant = 10;
+            }
+            actualizarPrecioTotal();
             return
         }
     }
-
-    /*let listaNombres = $('.carro-items').children('.carro-fila');
-    for (let i = 0; i < carro.length; i++) {
-        for (let j = 0; j < listaNombres.length; j++) {
-            if(carro[i].titulo == listaNombres[j].children('.carro-item-titulo')[0].innerText) {
-                carro[i].cant = carro[i].cant++;
-                $('.carro-items').querySelectorAll('.carro-cant-input').value++;
-                return
-            }
-        }
-        if(carro[i].titulo == nomItem) {
-            let cantInput = $('.carro-item-titulo');
-            for(i=0; i < carro.length; i++){
-                if(cantInput == nomItem){
-                    
-                }
-            carro[i].cant = carro[i].cant++;
-            return
-            }
-        }
-    }*/
-    
-    let cant = 1;
-    const productoCompra = new Producto(nomItem, precio, cant, carroID);
-    carroID++
+    const productoCompra = new Producto(nomItem, precio, cant, itemID);
     carro.push(productoCompra);
     agregarAlCarro(productoCompra.titulo, productoCompra.precio, productoCompra.cant, productoCompra.id);
     guardarProductoEnLS(productoCompra);
     actualizarPrecioTotal();
+
 }
 
 function cambioCantidad(event) {
@@ -92,19 +75,38 @@ function quitarDelCarro(event) {
             carro.splice(i, 1);
         }
     }
-    let productos = getProductosDeLS();
+    sacarDeLS(paraSacar);
+    /*let productos = getProductosDeLS();
     let listaActualizada = productos.filter(producto => {
         return (producto.titulo !== paraSacar);
     });
-    localStorage.setItem('productos', JSON.stringify(listaActualizada));
+    localStorage.setItem('productos', JSON.stringify(listaActualizada));*/
     actualizarPrecioTotal();
     }); 
+}
+
+function sacarDeLS(aBorrar){
+    let productos = getProductosDeLS();
+    let listaActualizada = productos.filter(producto => {
+        return (producto.titulo !== aBorrar);
+    });
+    localStorage.setItem('productos', JSON.stringify(listaActualizada));
 }
 
 function guardarProductoEnLS(item){
     let productos = getProductosDeLS();
     productos.push(item);
     localStorage.setItem('productos', JSON.stringify(productos));
+}
+
+function acutalizarLS(nombre){
+    sacarDeLS(nombre);
+    listaLS = getProductosDeLS();
+    for(i=0; i < carro.length; i++){
+        if(nombre == carro[i].titulo) {
+            guardarProductoEnLS(carro[i])
+        }
+    }
 }
 
 function getProductosDeLS(){
@@ -128,19 +130,6 @@ function cargarCarro(){
 }
 
 function agregarAlCarro(titulo, precio, cant, id) {
-    //let carroFila = document.createElement('div');
-    //carroFila.classList.add('carro-fila');
-    //carroFila.setAttribute('data-id', `${id}`)
-    //let carroItems = document.getElementsByClassName('carro-items')[0];
-    /*let carroFilaContenido = `
-    <span class="carro-item carro-columna carro-item-titulo">${titulo}</span>
-    <span class="carro-precio carro-columna">$${precio}</span>
-    <div class="carro-cant carro-columna">
-      <input class="carro-cant-input" type="number" value="1"></input>
-      <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
-    </div>`;*/
-    //carroFila.innerHTML = carroFilaContenido;
-    //carroItems.append(carroFila);
     $('.carro-items').append(`
     <div class="carro-fila" id="${id}" style="display: none">
         <span class="carro-item carro-columna carro-item-titulo">${titulo}</span>
@@ -150,7 +139,7 @@ function agregarAlCarro(titulo, precio, cant, id) {
             <button role="button" class="btn btn-block btn-danger rounded py-2 px-4 carro-cant-btn">QUITAR</button>
         </div>
     </div>`);
-    $(`#${id}`).fadeIn();
+    $(".carro-fila").fadeIn();
     $('.btn-danger').on('click', quitarDelCarro);
     $('.carro-cant-input').on('change', cambioCantidad);
     $(".carro-vacio").fadeOut("slow", ()=>{$(".carro-con-items").fadeIn("slow")});

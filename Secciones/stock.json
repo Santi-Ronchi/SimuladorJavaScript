@@ -2,46 +2,64 @@
     {
         "nombre": "Maceta",
         "precio": "500",
-        "imagen": "../media/fotos/maceta3d43.jpg"
+        "imagen": "../media/fotos/maceta3d43.jpg",
+        "id": "1",
+        "stock": "100"
     },
     {
         "nombre": "Pokemon",
         "precio": "200",
-        "imagen": "../media/fotos/poke.jpg"
+        "imagen": "../media/fotos/poke.jpg",
+        "id": "2",
+        "stock": "100"
     },
     {
         "nombre": "JoyConHolder",
         "precio": "1200",
-        "imagen": "../media/fotos/JoyConHolderFront.jpg"
+        "imagen": "../media/fotos/JoyConHolderFront.jpg",
+        "id": "3",
+        "stock": "100"
     },
     {
         "nombre": "Lapicero",
         "precio": "250",
-        "imagen": "../media/fotos/LapiceroLleno.jpg"
+        "imagen": "../media/fotos/LapiceroLleno.jpg",
+        "id": "4",
+        "stock": "100"
     },
     {
         "nombre": "Escurre dentifrico",
         "precio": "100",
-        "imagen": "../media/fotos/escurreDentifrico.jpg"
+        "imagen": "../media/fotos/escurreDentifrico.jpg",
+        "id": "5",
+        "stock": "100"
     },
     {
         "nombre": "Porta control remoto",
         "precio": "800",
-        "imagen": "../media/fotos/PortaControles.jpg"
+        "imagen": "../media/fotos/PortaControles.jpg",
+        "id": "6",
+        "stock": "100"
     },
     {
         "nombre": "Auto antiguo",
         "precio": "350",
-        "imagen": "../media/fotos/autoJuguete.jpg"
+        "imagen": "../media/fotos/autoJuguete.jpg",
+        "id": "7",
+        "stock": "100"
     },
     {
         "nombre": "Anti anteojos nublados",
         "precio": "120",
-        "imagen": "../media/fotos/antiNiebla.jpg"
+        "imagen": "../media/fotos/antiNiebla.jpg",
+        "id": "8",
+        "stock": "100"
     },
     {
         "nombre": "Caja .22",
         "precio": "1500",
-        "imagen": "../media/fotos/balas22CaseFull.jpg"
+        "imagen": "../media/fotos/balas22CaseFull.jpg",
+        "id": "9",
+        "stock": "100"
     }
 ]

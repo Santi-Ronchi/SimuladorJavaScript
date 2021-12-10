@@ -236,6 +236,9 @@ section {
 .nombre-ingresado {
   font-family: normal bold "Work Sans", sans-serif; }
 
+.cantStock {
+  display: none; }
+
 @keyframes iniciaPagina {
   0% { }
   50% {
